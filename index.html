@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fractions Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fractions Visualizer</h1>
+            <p>Create and calculate beautiful nested fractions</p>
+        </header>
+        
+        <div class="input-section">
+            <div class="input-container">
+                <input type="text" id="expression-input" placeholder="Enter expression: e.g., (1+2)/(3+4/5)" autocomplete="off">
+                <button id="render-btn">Render</button>
+                <button id="clear-btn">Clear</button>
+            </div>
+            
+            <div class="quick-actions">
+                <button class="quick-btn" data-insert="/">÷</button>
+                <button class="quick-btn" data-insert="(">(</button>
+                <button class="quick-btn" data-insert=")">)</button>
+                <button class="quick-btn" data-insert="+">+</button>
+                <button class="quick-btn" data-insert="-">-</button>
+                <button class="quick-btn" data-insert="*">×</button>
+            </div>
+        </div>
+        
+        <div class="display-section">
+            <div class="rendered-expression" id="rendered-expression">
+                <div class="placeholder">Enter an expression to see it rendered as beautiful fractions</div>
+            </div>
+        </div>
+        
+        <div class="result-section">
+            <div class="result-container">
+                <h3>Result:</h3>
+                <div class="result-display" id="result-display">
+                    <div class="placeholder">Result will appear here</div>
+                </div>
+                <div class="decimal-result" id="decimal-result"></div>
+            </div>
+        </div>
+        
+        <div class="examples-section">
+            <h3>Examples:</h3>
+            <div class="examples">
+                <button class="example-btn" data-example="1/2 + 3/4">1/2 + 3/4</button>
+                <button class="example-btn" data-example="(1+2)/(3+4)">Nested: (1+2)/(3+4)</button>
+                <button class="example-btn" data-example="1/(2+3/4)">Complex: 1/(2+3/4)</button>
+                <button class="example-btn" data-example="(1/2)/(3/4)">Fraction of fraction</button>
+                <button class="example-btn" data-example="1/2 + 3/(4+5/6)">Multi-level nesting</button>
+            </div>
+        </div>
+        
+        <div class="help-section">
+            <details>
+                <summary>How to use</summary>
+                <ul>
+                    <li>Use <code>/</code> for division (fractions)</li>
+                    <li>Use <code>+</code>, <code>-</code>, <code>*</code> for operations</li>
+                    <li>Use parentheses <code>()</code> for grouping</li>
+                    <li>Numbers can be integers or decimals</li>
+                    <li>Nested fractions are fully supported</li>
+                </ul>
+            </details>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 
