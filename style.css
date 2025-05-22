@@ -4,7 +4,16 @@
     box-sizing: border-box;
 }
 
-body {    font-family: 'Georgia', 'Times New Roman', serif;    background: #0a0a0a;    background-image:         radial-gradient(circle at 25% 25%, #1a1a1a 0%, transparent 50%),        radial-gradient(circle at 75% 75%, #1a1a1a 0%, transparent 50%);    min-height: 100vh;    padding: 20px;    color: #e0e0e0;}
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #0a0a0a;
+    background-image: 
+        radial-gradient(circle at 25% 25%, #1a1a1a 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, #1a1a1a 0%, transparent 50%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #e0e0e0;
+}
 
 .container {    max-width: 1000px;    margin: 0 auto;    background: #1a1a1a;    border-radius: 12px;    box-shadow:         0 0 0 1px rgba(79, 172, 254, 0.2),        0 20px 40px rgba(0, 0, 0, 0.6),        inset 0 1px 0 rgba(255, 255, 255, 0.1);    overflow: hidden;    border: 1px solid #2a2a2a;}
 
@@ -110,16 +119,74 @@ button {    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);    co
 .math-expression {
     display: inline-flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 6px;
     line-height: 1.8;
+    vertical-align: baseline;
+    white-space: nowrap;
 }
 
-.operator {    font-size: 1.2em;    font-weight: bold;    margin: 0 8px;    color: #4facfe;    align-self: center;    text-shadow: 0 0 3px rgba(79, 172, 254, 0.5);}.number {    font-weight: bold;    color: #ffffff;    align-self: center;    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);}.parentheses {    font-size: 1.5em;    font-weight: bold;    color: #ffffff;    margin: 0 4px;    align-self: center;    line-height: 1;    opacity: 0.9;}
+.operator {    font-size: 1.2em;    font-weight: bold;    margin: 0 8px;    color: #4facfe;    align-self: center;    text-shadow: 0 0 3px rgba(79, 172, 254, 0.5);}.number {    font-weight: bold;    color: #ffffff;    align-self: center;    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);}.parentheses {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 4px;
+    align-self: center;
+    line-height: 1;
+    opacity: 0.9;
+}
 
 .nested-expression {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Multi-level parentheses scaling */
+.parentheses.medium {
+    font-size: 1.8em;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0.8;
+    vertical-align: middle;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.parentheses.large {
+    font-size: 2.2em;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0.7;
+    vertical-align: middle;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.parentheses.x-large {
+    font-size: 2.8em;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0.6;
+    vertical-align: middle;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.parentheses.xx-large {
+    font-size: 3.5em;
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0.5;
+    vertical-align: middle;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* Animation for rendering */

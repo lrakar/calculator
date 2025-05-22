@@ -303,7 +303,12 @@ class MathRenderer {
             if (this.isSimpleExpression(node.expression)) {
                 return `<span class="nested-expression">${this.renderAST(node.expression)}</span>`;
             }
-            return `<span class="parentheses">(</span><span class="nested-expression">${this.renderAST(node.expression)}</span><span class="parentheses">)</span>`;
+            
+            const innerContent = this.renderAST(node.expression);
+            // Determine parentheses size based on content complexity
+            const parenClass = this.getParenthesesSize(innerContent);
+            
+            return `<span class="${parenClass}">(</span><span class="nested-expression">${innerContent}</span><span class="${parenClass}">)</span>`;
         }
         
         if (node.type === 'binary') {
@@ -345,6 +350,31 @@ class MathRenderer {
         }
         
         return false;
+    }
+    
+    static getParenthesesSize(content) {
+        // Count complexity indicators
+        const fractionCount = (content.match(/class="fraction"/g) || []).length;
+        const nestedParenCount = (content.match(/class="parentheses/g) || []).length;
+        const operatorCount = (content.match(/class="operator"/g) || []).length;
+        
+        // Calculate complexity score
+        const complexityScore = fractionCount + (nestedParenCount * 2) + (operatorCount * 0.5);
+        
+        // Assign size based on complexity
+        if (complexityScore >= 8) {
+            return 'parentheses xx-large';
+        } else if (complexityScore >= 6) {
+            return 'parentheses x-large';
+        } else if (complexityScore >= 4) {
+            return 'parentheses large';
+        } else if (complexityScore >= 2) {
+            return 'parentheses medium';
+        } else if (complexityScore >= 1) {
+            return 'parentheses medium';
+        } else {
+            return 'parentheses';
+        }
     }
     
     static renderFraction(fraction) {
